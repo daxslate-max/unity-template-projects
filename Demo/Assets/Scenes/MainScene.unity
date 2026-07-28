@@ -263,8 +263,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -393,7 +393,7 @@ MonoBehaviour:
   perfectColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   goodColor: {r: 0, g: 1, b: 0, a: 1}
   badColor: {r: 0.5, g: 0, b: 0.5, a: 1}
-  clickSound: {fileID: 8300000, guid: c83e04a5bfab694408151910bc069e07, type: 3}
+  clickSound: {fileID: 8300000, guid: 5bcc820f371c4674d938d36566622f16, type: 3}
   clickSource: {fileID: 0}
 --- !u!114 &987001514
 MonoBehaviour:
