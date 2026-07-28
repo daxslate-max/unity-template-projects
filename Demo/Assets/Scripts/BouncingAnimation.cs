@@ -28,6 +28,7 @@ public class Animation : MonoBehaviour
         } else {
             transform.Translate(new Vector3(0,-1,0) * speed);
         }
+
     }
 
 }
