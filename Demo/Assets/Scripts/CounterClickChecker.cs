@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 
@@ -7,6 +8,11 @@ public class CounterClickChecker : MonoBehaviour
     [SerializeField] private CounterLoop counter;
     [SerializeField] private TMP_Text counterLabel;
     [SerializeField] private TMP_Text resultLabel;
+    [SerializeField] private Image enemyHealthBar;
+    [SerializeField] private Image rabbitHealthBar;
+    [SerializeField] private float perfectDamage = 0.1f;
+    [SerializeField] private float goodDamage = 0.05f;
+    [SerializeField] private float badDamage = 0.05f;
     [SerializeField] private float resultHoldDuration = 0.5f;
     [SerializeField] private float resultAnimDuration = 0.1f;
     [SerializeField] private float resultMinScale = 0.2f;
@@ -144,18 +150,21 @@ public class CounterClickChecker : MonoBehaviour
             Debug.Log("Perfect!");
             ShowResultText("Perfect!", perfectColor);
             rabbitHeadbop?.TriggerForwardThrust();
+            ApplyHealthChange(enemyHealthBar, perfectDamage);
         }
         else if (currentValue >= 11 && currentValue <= 30)
         {
             Debug.Log("Good!");
             ShowResultText("Good!", goodColor);
             rabbitHeadbop?.TriggerForwardThrust();
+            ApplyHealthChange(enemyHealthBar, goodDamage);
         }
         else
         {
             Debug.Log("Bad...");
             ShowResultText("Bad...", badColor);
             rabbitHeadbop?.TriggerBadThrust();
+            ApplyHealthChange(rabbitHealthBar, badDamage);
         }
 
         PlayClickSound();
@@ -172,5 +181,13 @@ public class CounterClickChecker : MonoBehaviour
         resultElapsed = 0f;
         resultTotalTime = resultAnimDuration * 2f + resultHoldDuration;
         resultLabel.transform.localScale = Vector3.one * resultMinScale;
+    }
+
+    private void ApplyHealthChange(Image healthBar, float amount)
+    {
+        if (healthBar == null)
+            return;
+
+        healthBar.fillAmount = Mathf.Clamp01(healthBar.fillAmount - amount);
     }
 }
