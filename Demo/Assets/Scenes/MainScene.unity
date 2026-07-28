@@ -395,6 +395,7 @@ MonoBehaviour:
   badColor: {r: 0.5, g: 0, b: 0.5, a: 1}
   clickSound: {fileID: 8300000, guid: 5bcc820f371c4674d938d36566622f16, type: 3}
   clickSource: {fileID: 0}
+  rabbitHeadbop: {fileID: 1880823914}
 --- !u!114 &987001514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,6 +791,10 @@ MonoBehaviour:
   bopInterval: 1
   squishDuration: 0.12
   squishScale: {x: 1.1, y: 0.8, z: 1}
+  badThrustTarget: {fileID: 0}
+  thrustDistance: 0.2
+  thrustDuration: 0.08
+  thrustHoldDuration: 0.05
 --- !u!1 &1538280495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1097,10 @@ MonoBehaviour:
   bopInterval: 1
   squishDuration: 0.12
   squishScale: {x: 1.1, y: 0.8, z: 1}
+  badThrustTarget: {fileID: 1330883845}
+  thrustDistance: 0.6
+  thrustDuration: 0.08
+  thrustHoldDuration: 0.05
 --- !u!1 &2030075730
 GameObject:
   m_ObjectHideFlags: 0
