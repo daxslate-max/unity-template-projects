@@ -16,6 +16,7 @@ public class CounterClickChecker : MonoBehaviour
     [SerializeField] private Color badColor = new Color(0.5f, 0f, 0.5f);
     [SerializeField] private AudioClip clickSound;
     [SerializeField] private AudioSource clickSource;
+    [SerializeField] private RabbitHeadbop rabbitHeadbop;
 
     private float resultElapsed;
     private float resultTotalTime;
@@ -142,16 +143,19 @@ public class CounterClickChecker : MonoBehaviour
         {
             Debug.Log("Perfect!");
             ShowResultText("Perfect!", perfectColor);
+            rabbitHeadbop?.TriggerForwardThrust();
         }
         else if (currentValue >= 11 && currentValue <= 30)
         {
             Debug.Log("Good!");
             ShowResultText("Good!", goodColor);
+            rabbitHeadbop?.TriggerForwardThrust();
         }
         else
         {
             Debug.Log("Bad...");
             ShowResultText("Bad...", badColor);
+            rabbitHeadbop?.TriggerBadThrust();
         }
 
         PlayClickSound();
