@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      foxboy_0: -458771090374808938
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rabbitboy_0: 3716784223172663442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
