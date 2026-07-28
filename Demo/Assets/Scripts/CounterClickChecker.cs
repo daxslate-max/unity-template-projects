@@ -5,6 +5,8 @@ public class CounterClickChecker : MonoBehaviour
 {
     [SerializeField] private CounterLoop counter;
 
+    
+
     private void Awake()
     {
         if (counter == null)
@@ -20,6 +22,8 @@ public class CounterClickChecker : MonoBehaviour
         {
             CheckCounter();
         }
+
+        
     }
 
     private void CheckCounter()
@@ -37,9 +41,10 @@ public class CounterClickChecker : MonoBehaviour
             $"Clicked at {currentValue}. Distance from 100: {distanceFrom100}"
         );
 
-        if (currentValue == 100)
+        if (currentValue >= 90)
         {
             Debug.Log("Perfect!");
         }
+        
     }
 }
