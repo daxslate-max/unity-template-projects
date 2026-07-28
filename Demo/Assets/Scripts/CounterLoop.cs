@@ -6,50 +6,56 @@ public class CounterLoop : MonoBehaviour
     [SerializeField] private int minValue = 0;
     [SerializeField] private int maxValue = 100;
 
-    [Tooltip("Numbers counted per second.")]
-    [SerializeField] private float countSpeed = 50f;
+    [Tooltip("Seconds to reach maxValue when counting up.")]
+    [SerializeField] private float upDuration = 0.5f;
+
+    [Tooltip("Seconds to reach minValue when counting down.")]
+    [SerializeField] private float downDuration = 0.5f;
 
     public int CurrentValue { get; private set; }
 
     private bool countingUp = true;
-    private float timer;
+    private float phaseTimer;
 
     private void Start()
     {
         CurrentValue = minValue;
+        phaseTimer = 0f;
     }
 
     private void Update()
     {
-        if (countSpeed <= 0f)
+        if (upDuration <= 0f || downDuration <= 0f)
             return;
 
-        timer += Time.deltaTime;
-        float interval = 1f / countSpeed;
+        phaseTimer += Time.deltaTime;
 
-        while (timer >= interval)
+        if (countingUp)
         {
-            timer -= interval;
-
-            if (countingUp)
+            float progress = phaseTimer / upDuration;
+            if (progress >= 1f)
             {
-                CurrentValue++;
-
-                if (CurrentValue >= maxValue)
-                {
-                    CurrentValue = maxValue;
-                    countingUp = false;
-                }
+                CurrentValue = maxValue;
+                countingUp = false;
+                phaseTimer -= upDuration;
             }
             else
             {
-                CurrentValue--;
-
-                if (CurrentValue <= minValue)
-                {
-                    CurrentValue = minValue;
-                    countingUp = true;
-                }
+                CurrentValue = Mathf.RoundToInt(Mathf.Lerp(minValue, maxValue, progress));
+            }
+        }
+        else
+        {
+            float progress = phaseTimer / downDuration;
+            if (progress >= 1f)
+            {
+                CurrentValue = minValue;
+                countingUp = true;
+                phaseTimer -= downDuration;
+            }
+            else
+            {
+                CurrentValue = Mathf.RoundToInt(Mathf.Lerp(maxValue, minValue, progress));
             }
         }
     }
