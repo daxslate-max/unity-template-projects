@@ -29,10 +29,6 @@ public class Animation : MonoBehaviour
             transform.Translate(new Vector3(0,-1,0) * speed);
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            transform.position.y = position.y + 0.1
-        }
     }
 
 }
