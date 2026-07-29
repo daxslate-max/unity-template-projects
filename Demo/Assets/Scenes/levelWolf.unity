@@ -885,7 +885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7624fa2a206cf8249bbd8fa0430bf9f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bopInterval: 1
+  bopInterval: 0.5
   squishDuration: 0.12
   squishScale: {x: 1.1, y: 0.8, z: 1}
   badThrustTarget: {fileID: 1161727546}
@@ -1123,7 +1123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7624fa2a206cf8249bbd8fa0430bf9f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bopInterval: 1
+  bopInterval: 0.5
   squishDuration: 0.12
   squishScale: {x: 0.27, y: 0.24, z: 1}
   badThrustTarget: {fileID: 0}
@@ -1578,7 +1578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1901724768
 RectTransform:
   m_ObjectHideFlags: 0
