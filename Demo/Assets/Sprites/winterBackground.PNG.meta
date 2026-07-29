@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cdb1156d1290eae4fb89cb8ad6222a86
+guid: a6b025e02abda1d48b498476c6c7a7be
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2808817498485673607
-    second: "\u2014Pngtree\u2014vector up arrow icon_4231914_0"
+      213: -1040390304630944887
+    second: IMG_4798_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u2014Pngtree\u2014vector up arrow icon_4231914_0"
+      name: IMG_4798_0
       rect:
         serializedVersion: 2
-        x: 179
-        y: 125
-        width: 667
-        height: 771
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78ec32412aceaf620800000000000000
-      internalID: 2808817498485673607
+      spriteID: 98b46b8b78acf81f0800000000000000
+      internalID: -1040390304630944887
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\u2014Pngtree\u2014vector up arrow icon_4231914_0": 2808817498485673607
+      IMG_4798_0: -1040390304630944887
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
