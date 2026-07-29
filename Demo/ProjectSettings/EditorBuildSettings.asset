@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Death.unity
     guid: 69b40ac01d61b524792f682408a2e864
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 3b515a33341574e488b2f75d4e90cd42
+  - enabled: 1
+    path: Assets/Scenes/levelWolf.unity
+    guid: 15b5d822eb55ead4eb2780073eac6279
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

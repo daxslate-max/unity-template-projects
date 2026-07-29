@@ -28,6 +28,8 @@ public class CounterClickChecker : MonoBehaviour
     private float resultElapsed;
     private float resultTotalTime;
     private bool resultVisible;
+    private bool hasLoadedWinScene;
+    private bool hasLoadedDeathScene;
 
     private void Awake()
     {
@@ -35,6 +37,8 @@ public class CounterClickChecker : MonoBehaviour
         {
             counter = FindFirstObjectByType<CounterLoop>();
         }
+
+        ResolveHealthBars();
 
         if (counterLabel == null)
         {
@@ -120,6 +124,63 @@ public class CounterClickChecker : MonoBehaviour
         }
     }
 
+    private void ResolveHealthBars()
+    {
+        if (enemyHealthBar == null)
+        {
+            enemyHealthBar = FindImageByName("EnemyHealthBar", "Enemy HP", "EnemyHealth", "enemyHealthBar");
+        }
+
+        if (rabbitHealthBar == null)
+        {
+            rabbitHealthBar = FindImageByName("RabbitHealthBar", "Rabbit HP", "RabbitHealth", "rabbitHealthBar");
+        }
+
+        if (enemyHealthBar == null)
+        {
+            Debug.LogWarning("Enemy health bar image could not be found automatically. Assign it in the inspector.");
+        }
+
+        if (rabbitHealthBar == null)
+        {
+            Debug.LogWarning("Rabbit health bar image could not be found automatically. Assign it in the inspector.");
+        }
+    }
+
+    private Image FindImageByName(params string[] possibleNames)
+    {
+        foreach (string possibleName in possibleNames)
+        {
+            GameObject foundObject = GameObject.Find(possibleName);
+            if (foundObject != null)
+            {
+                Image image = foundObject.GetComponent<Image>();
+                if (image != null)
+                {
+                    return image;
+                }
+            }
+        }
+
+        Image[] images = Resources.FindObjectsOfTypeAll<Image>();
+        foreach (Image image in images)
+        {
+            if (image == null || image.gameObject.scene != gameObject.scene)
+                continue;
+
+            string nameLower = image.name.ToLowerInvariant();
+            foreach (string possibleName in possibleNames)
+            {
+                if (nameLower.Contains(possibleName.ToLowerInvariant()))
+                {
+                    return image;
+                }
+            }
+        }
+
+        return null;
+    }
+
     private void PlayClickSound()
     {
         if (clickSound == null)
@@ -192,11 +253,25 @@ public class CounterClickChecker : MonoBehaviour
         if (healthBar == null)
             return;
 
+        float previousFill = healthBar.fillAmount;
         healthBar.fillAmount = Mathf.Clamp01(healthBar.fillAmount - amount);
+
+        Debug.Log($"{healthBar.name} fill changed from {previousFill} to {healthBar.fillAmount}");
 
         if (healthBar.fillAmount <= 0f)
         {
-            SceneManager.LoadScene("Death");
+            Debug.Log($"{healthBar.name} reached zero.");
+
+            if (healthBar == enemyHealthBar && !hasLoadedWinScene)
+            {
+                hasLoadedWinScene = true;
+                SceneManager.LoadScene("Win");
+            }
+            else if (healthBar == rabbitHealthBar && !hasLoadedDeathScene)
+            {
+                hasLoadedDeathScene = true;
+                SceneManager.LoadScene("Death");
+            }
         }
     }
 }
