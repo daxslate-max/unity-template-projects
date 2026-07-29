@@ -31,6 +31,9 @@ public class RabbitHeadbop : MonoBehaviour
 
     private void Update()
     {
+        if (!StartPause.IsGameStarted)
+            return;
+
         timer += Time.deltaTime;
 
         if (!isBopping && timer >= bopInterval)

@@ -6,15 +6,22 @@ public class MusicStart : MonoBehaviour
 {
     public AudioSource _music;
     
-    // Start is called before the first frame update
     void Start()
     {
-        _music.Play();
+        if (_music != null)
+        {
+            _music.Stop();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (!StartPause.IsGameStarted)
+            return;
+
+        if (_music != null && !_music.isPlaying)
+        {
+            _music.Play();
+        }
     }
 }

@@ -73,6 +73,9 @@ public class CounterClickChecker : MonoBehaviour
 
     private void Update()
     {
+        if (!StartPause.IsGameStarted)
+            return;
+
         if (counter != null && counterLabel != null)
         {
             counterLabel.text = counter.CurrentValue.ToString();

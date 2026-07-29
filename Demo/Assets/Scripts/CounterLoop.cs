@@ -25,6 +25,9 @@ public class CounterLoop : MonoBehaviour
 
     private void Update()
     {
+        if (!StartPause.IsGameStarted)
+            return;
+
         if (upDuration <= 0f || downDuration <= 0f)
             return;
 

@@ -17,6 +17,9 @@ public class Animation : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        if (!StartPause.IsGameStarted)
+            return;
+
         if (transform.position.y <= startingHeight) {
             rising = true;
         } else if (transform.position.y > height) {
