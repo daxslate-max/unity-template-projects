@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class CounterClickChecker : MonoBehaviour
@@ -192,5 +193,10 @@ public class CounterClickChecker : MonoBehaviour
             return;
 
         healthBar.fillAmount = Mathf.Clamp01(healthBar.fillAmount - amount);
+
+        if (healthBar.fillAmount <= 0f)
+        {
+            SceneManager.LoadScene("Death");
+        }
     }
 }

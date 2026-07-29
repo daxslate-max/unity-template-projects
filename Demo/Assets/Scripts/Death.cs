@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Death : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float delayBeforeReturn = 2f;
+
+    private void Start()
     {
-        
+        Invoke(nameof(ReturnToMainScene), delayBeforeReturn);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ReturnToMainScene()
     {
-        
+        SceneManager.LoadScene("MainScene");
     }
 }
