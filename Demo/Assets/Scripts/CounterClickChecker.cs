@@ -11,6 +11,7 @@ public class CounterClickChecker : MonoBehaviour
     [SerializeField] private TMP_Text resultLabel;
     [SerializeField] private Image enemyHealthBar;
     [SerializeField] private Image rabbitHealthBar;
+    [SerializeField] private Animator wolfAnimator;
     [SerializeField] private float perfectDamage = 0.1f;
     [SerializeField] private float goodDamage = 0.05f;
     [SerializeField] private float badDamage = 0.05f;
@@ -39,6 +40,7 @@ public class CounterClickChecker : MonoBehaviour
         }
 
         ResolveHealthBars();
+        ResolveWolfAnimator();
 
         if (counterLabel == null)
         {
@@ -147,6 +149,19 @@ public class CounterClickChecker : MonoBehaviour
         }
     }
 
+    private void ResolveWolfAnimator()
+    {
+        if (wolfAnimator == null)
+        {
+            wolfAnimator = FindAnimatorByName("WolfEnemy", "Wolf", "EnemyAnimator");
+        }
+
+        if (wolfAnimator == null)
+        {
+            Debug.LogWarning("Wolf animator could not be found automatically. Assign it in the inspector.");
+        }
+    }
+
     private Image FindImageByName(params string[] possibleNames)
     {
         foreach (string possibleName in possibleNames)
@@ -179,6 +194,51 @@ public class CounterClickChecker : MonoBehaviour
         }
 
         return null;
+    }
+
+    private Animator FindAnimatorByName(params string[] possibleNames)
+    {
+        foreach (string possibleName in possibleNames)
+        {
+            GameObject foundObject = GameObject.Find(possibleName);
+            if (foundObject != null)
+            {
+                Animator animator = foundObject.GetComponent<Animator>();
+                if (animator != null)
+                {
+                    return animator;
+                }
+            }
+        }
+
+        Animator[] animators = Resources.FindObjectsOfTypeAll<Animator>();
+        foreach (Animator animator in animators)
+        {
+            if (animator == null || animator.gameObject.scene != gameObject.scene)
+                continue;
+
+            string nameLower = animator.name.ToLowerInvariant();
+            foreach (string possibleName in possibleNames)
+            {
+                if (nameLower.Contains(possibleName.ToLowerInvariant()))
+                {
+                    return animator;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private void TriggerBadAnimation()
+    {
+        if (wolfAnimator != null)
+        {
+            wolfAnimator.SetTrigger("Bad");
+            return;
+        }
+
+        Debug.LogWarning("Wolf animator is not assigned, so the bad animation could not be triggered.");
     }
 
     private void PlayClickSound()
@@ -230,6 +290,7 @@ public class CounterClickChecker : MonoBehaviour
             ShowResultText("Bad...", badColor);
             rabbitHeadbop?.TriggerBadThrust();
             ApplyHealthChange(rabbitHealthBar, badDamage);
+            TriggerBadAnimation();
         }
 
         PlayClickSound();

@@ -618,6 +618,7 @@ MonoBehaviour:
   resultLabel: {fileID: 1068260559}
   enemyHealthBar: {fileID: 590367289}
   rabbitHealthBar: {fileID: 1833205650}
+  wolfAnimator: {fileID: 0}
   perfectDamage: 0.03
   goodDamage: 0.01
   badDamage: 0.1
@@ -1037,6 +1038,7 @@ GameObject:
   - component: {fileID: 1161727546}
   - component: {fileID: 1161727545}
   - component: {fileID: 1161727547}
+  - component: {fileID: 1161727548}
   m_Layer: 0
   m_Name: WolfEnemy
   m_TagString: Untagged
@@ -1130,6 +1132,28 @@ MonoBehaviour:
   thrustDistance: 0.6
   thrustDuration: 0.08
   thrustHoldDuration: 0.05
+--- !u!95 &1161727548
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161727544}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7980e48dc3d3f0f45a2f9fd65dd5ddd8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1257377642
 GameObject:
   m_ObjectHideFlags: 0
