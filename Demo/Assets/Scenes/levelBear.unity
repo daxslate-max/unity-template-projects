@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 350846477}
   - component: {fileID: 350846476}
   m_Layer: 0
-  m_Name: forest fall season_0
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -844,7 +844,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ab7b3cd622b9f804ca503812e6c71973, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d9f0af7b7c84c60408b96e402d014758, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
