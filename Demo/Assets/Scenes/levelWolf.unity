@@ -800,6 +800,7 @@ GameObject:
   - component: {fileID: 1038120943}
   - component: {fileID: 1038120942}
   - component: {fileID: 1038120944}
+  - component: {fileID: 1038120945}
   m_Layer: 0
   m_Name: RabbitPlayer
   m_TagString: Untagged
@@ -893,6 +894,28 @@ MonoBehaviour:
   thrustDistance: 0.6
   thrustDuration: 0.08
   thrustHoldDuration: 0.05
+--- !u!95 &1038120945
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038120941}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef779e478905a0c4f88d6a1d17c85f58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1068260556
 GameObject:
   m_ObjectHideFlags: 0

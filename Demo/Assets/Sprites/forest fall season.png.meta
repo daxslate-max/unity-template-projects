@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      forest fall season_0: -5768702863463339838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

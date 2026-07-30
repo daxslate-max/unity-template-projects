@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class CounterClickChecker : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CounterClickChecker : MonoBehaviour
     [SerializeField] private Image enemyHealthBar;
     [SerializeField] private Image rabbitHealthBar;
     [SerializeField] private Animator wolfAnimator;
+    [SerializeField] private Animator rabbitAnimator;
     [SerializeField] private float perfectDamage = 0.1f;
     [SerializeField] private float goodDamage = 0.05f;
     [SerializeField] private float badDamage = 0.05f;
@@ -41,6 +43,7 @@ public class CounterClickChecker : MonoBehaviour
 
         ResolveHealthBars();
         ResolveWolfAnimator();
+        ResolveRabbitAnimator();
 
         if (counterLabel == null)
         {
@@ -162,6 +165,19 @@ public class CounterClickChecker : MonoBehaviour
         }
     }
 
+    private void ResolveRabbitAnimator()
+    {
+        if (rabbitAnimator == null)
+        {
+            rabbitAnimator = FindAnimatorByName("RabbitPlayer", "Rabbit", "RabbitAnimator");
+        }
+
+        if (rabbitAnimator == null)
+        {
+            Debug.LogWarning("Rabbit animator could not be found automatically. Assign it in the inspector.");
+        }
+    }
+
     private Image FindImageByName(params string[] possibleNames)
     {
         foreach (string possibleName in possibleNames)
@@ -235,10 +251,22 @@ public class CounterClickChecker : MonoBehaviour
         if (wolfAnimator != null)
         {
             wolfAnimator.SetTrigger("Bad");
+        }
+        else
+        {
+            Debug.LogWarning("Wolf animator is not assigned, so the bad animation could not be triggered.");
+        }
+    }
+
+    private void TriggerRabbitAngryAnimation()
+    {
+        if (rabbitAnimator == null)
+        {
+            Debug.LogWarning("Rabbit animator is not assigned, so RabbitAngry could not be triggered.");
             return;
         }
 
-        Debug.LogWarning("Wolf animator is not assigned, so the bad animation could not be triggered.");
+        rabbitAnimator.SetTrigger("RabbitAngry");
     }
 
     private void PlayClickSound()
@@ -274,6 +302,7 @@ public class CounterClickChecker : MonoBehaviour
         {
             Debug.Log("Perfect!");
             ShowResultText("Perfect!", perfectColor);
+            TriggerRabbitAngryAnimation();
             rabbitHeadbop?.TriggerForwardThrust();
             ApplyHealthChange(enemyHealthBar, perfectDamage);
         }
@@ -281,6 +310,7 @@ public class CounterClickChecker : MonoBehaviour
         {
             Debug.Log("Good!");
             ShowResultText("Good!", goodColor);
+            TriggerRabbitAngryAnimation();
             rabbitHeadbop?.TriggerForwardThrust();
             ApplyHealthChange(enemyHealthBar, goodDamage);
         }
@@ -326,7 +356,15 @@ public class CounterClickChecker : MonoBehaviour
             if (healthBar == enemyHealthBar && !hasLoadedWinScene)
             {
                 hasLoadedWinScene = true;
-                SceneManager.LoadScene("Win");
+
+                if (SceneManager.GetActiveScene().name == "levelWolf")
+                {
+                    SceneManager.LoadScene("Win2");
+                }
+                else
+                {
+                    SceneManager.LoadScene("Win");
+                }
             }
             else if (healthBar == rabbitHealthBar && !hasLoadedDeathScene)
             {
