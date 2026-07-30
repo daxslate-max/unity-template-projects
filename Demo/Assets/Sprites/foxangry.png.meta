@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      foxangry_0: -8236413397205500270
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

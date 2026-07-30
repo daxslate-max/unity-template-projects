@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 473c053fdebd55a4a92d506c6a043d18
+guid: 73803422b5761784aa509141c6f16267
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3567464355213160411
-    second: bunnywin_0
+      213: 7935234321397735378
+    second: bear_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bunnywin_0
+      name: bear_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 504
-        height: 379
+        x: 293
+        y: 466
+        width: 1386
+        height: 1159
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bdf29590eed228130800000000000000
-      internalID: 3567464355213160411
+      spriteID: 2df5668929d9f1e60800000000000000
+      internalID: 7935234321397735378
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      bunnywin_0: 3567464355213160411
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bunnyangry_0: 8003817256763636964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
